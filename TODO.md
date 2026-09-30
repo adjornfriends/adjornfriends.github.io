@@ -11,8 +11,8 @@ Instructions for Claude: work through this one item at a time, starting at the t
 
 ## 2. Real content (NEEDS FROM JOE)
 
-- [ ] **Sponsor email.** Set `SPONSOR_EMAIL` in the script block so the "Email us" button appears.
-  - Email: ______________________
+- [x] **Sponsor email.** Set `SPONSOR_EMAIL` in the script block so the "Email us" button appears.
+  - Email: adjorandfriends@gmail.com
 - [ ] **Crew.** Replace the single group photo caption with a card for each crew member: name, role or segment, X handle, and a headshot if available. Compress headshots to under 40KB each (WebP), because most visitors are on mobile data.
   - Names / roles / handles: ______________________
   - Headshots: yes / no (keep group photo)

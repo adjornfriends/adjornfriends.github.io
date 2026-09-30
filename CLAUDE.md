@@ -16,7 +16,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - Colours are CSS variables on :root; dark mode is set in three places (prefers-color-scheme, and data-theme="dark"/"light" from the Theme button). Keep all three in sync.
 
 ## Settings (top of the <script> block)
-- `SPONSOR_EMAIL`: empty means the "Email us" button stays hidden.
+- `SPONSOR_EMAIL`: adjorandfriends@gmail.com. Empty means the "Email us" button stays hidden.
 - `LEADERS`: prediction league rows, e.g. {name:"@handle", exact:2, results:3}. Points = exact × 3 + results. Table sorts itself.
 - `HASHTAG`: league hashtag, default #ANFgames.
 
@@ -32,7 +32,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - Don't invent names, emails, fixtures or stats. Ask me for real ones.
 
 ## Still to add
-Sponsor email, crew names/roles/handles, upcoming fixtures.
+Crew names/roles/handles, upcoming fixtures.
 
 ## Workflow
 When a change is done: preview it, commit with a clear message, and push to main.
