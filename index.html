@@ -159,6 +159,12 @@ footer{border-top:3px solid var(--ink);padding:30px 0 40px;font-size:16px}
   .stepper{margin-top:0}
   .score{font-size:44px;min-width:34px}
 }
+/* background pattern: tactics-board marks, footballs and the hollow ANF mark */
+:root{--pat:url("pattern-light.svg")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pat:url("pattern-dark.svg")}}
+:root[data-theme="dark"]{--pat:url("pattern-dark.svg")}
+body{background-image:var(--pat);background-size:480px 480px;background-position:center top}
+@media (max-width:480px){body{background-size:360px 360px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
 </style>
 </head>
