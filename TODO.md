@@ -6,8 +6,8 @@ Instructions for Claude: work through this one item at a time, starting at the t
 
 ## 1. Fixes (do first)
 
-- [ ] **Mobile layout fix.** Skip this if the commit "Fix mobile layout: no sideways scroll, one-row swipe menu, bigger tap targets" is already in `git log`. If it isn't, ask me for the CSS.
-- [ ] **Theme button on phones.** It now sits at the end of the swipeable menu, where it's hidden until you swipe. Move it next to the logo on screens under 820px.
+- [x] **Mobile layout fix.** Skip this if the commit "Fix mobile layout: no sideways scroll, one-row swipe menu, bigger tap targets" is already in `git log`. If it isn't, ask me for the CSS.
+- [x] **Theme button on phones.** It now sits at the end of the swipeable menu, where it's hidden until you swipe. Move it next to the logo on screens under 820px.
 
 ## 2. Real content (NEEDS FROM JOE)
 
