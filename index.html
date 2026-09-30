@@ -75,6 +75,26 @@ section.block h2{font-size:clamp(36px,6vw,58px);margin-bottom:14px}
 .card h3{font-size:30px;margin-bottom:8px}
 .card p{margin:0 0 16px}
 .card a.link{font-weight:800}
+/* latest videos: newest large on the left, 3 smaller beside it */
+.vids{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);grid-auto-rows:auto;gap:16px;margin-top:24px}
+.vid{background:var(--card);border:3px solid var(--ink);border-radius:14px;overflow:hidden;min-width:0}
+.vid:first-child{grid-row:span 3}
+.vid:not(:first-child){display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.vid .play{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:var(--ink);cursor:pointer}
+.vid .play img,.vid iframe{display:block;width:100%;height:100%;object-fit:cover;border:0}
+.vid iframe{aspect-ratio:16/9;height:auto}
+.vid .pbtn{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--ink);border:3px solid var(--bg)}
+.vid .pbtn::after{content:"";position:absolute;left:21px;top:15px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent var(--bg)}
+.vid:not(:first-child) .play{aspect-ratio:auto;height:100%;min-height:110px}
+.vid:not(:first-child) iframe{height:100%}
+.vid:not(:first-child) .pbtn{transform:scale(.7)}
+.vid .play:hover .pbtn{transform:scale(1.08)}
+.vid:not(:first-child) .play:hover .pbtn{transform:scale(.78)}
+.vid .vmeta{padding:14px 16px}
+.vid h3{font-size:17px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vid:first-child h3{font-size:24px}
+.vid .ago{margin:6px 0 0;font-size:15px;font-weight:700;opacity:.85}
+.vidmore{margin:16px 0 28px;font-weight:800}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
 .crew{margin:26px 0 0;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#FCF119}
 .crew img{display:block;width:100%;height:auto}
@@ -117,6 +137,14 @@ footer{border-top:3px solid var(--ink);padding:30px 0 40px;font-size:16px}
   nav::-webkit-scrollbar{display:none}
   nav a,.theme{white-space:nowrap;padding:12px 10px}
   header.top>.theme{order:0;margin-left:auto}
+  .vids{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px}
+  .vids::-webkit-scrollbar{display:none}
+  .vid,.vid:not(:first-child){display:block;flex:0 0 100%;scroll-snap-align:start}
+  .vid:not(:first-child) .play{aspect-ratio:16/9;height:auto;min-height:0}
+  .vid:not(:first-child) iframe{height:auto}
+  .vid:not(:first-child) .pbtn,.vid:not(:first-child) .play:hover .pbtn{transform:none}
+  .vid:not(:first-child) h3{font-size:20px}
+  .vid:first-child h3{font-size:20px}
   .card a.link,.social a{display:inline-block;padding:10px 0}
   .score{font-size:54px}
   .stepper{gap:6px}
@@ -197,6 +225,9 @@ footer{border-top:3px solid var(--ink);padding:30px 0 40px;font-size:16px}
 
     <section class="block" id="watch">
       <h2>Watch and follow</h2>
+      <div class="vids" id="vids" hidden></div>
+      <p class="vidmore" id="vidmore" hidden><a href="https://www.youtube.com/@thekingadjor/videos" target="_blank" rel="noopener">More on YouTube</a></p>
+      <p class="vidmore" id="vidfallback" hidden><a class="btn fill" href="https://www.youtube.com/@thekingadjor/videos" target="_blank" rel="noopener">Watch the latest on YouTube</a></p>
       <p style="max-width:56ch;margin:0">The main home for shows, live watch-alongs and match reactions is YouTube. The community runs on Playback, and the daily takes live on X.</p>
       <div class="cols">
         <div class="card">
@@ -363,6 +394,41 @@ footer{border-top:3px solid var(--ink);padding:30px 0 40px;font-size:16px}
     });
   })();
   if(SPONSOR_EMAIL){var mb=$("mailbtn");mb.href="mailto:"+SPONSOR_EMAIL+"?subject="+encodeURIComponent("Sponsorship enquiry");mb.hidden=false}
+  /* Latest videos: videos.json is refreshed every 3 hours by .github/workflows/videos.yml */
+  (function(){
+    function ago(iso){
+      var d=Math.floor((Date.now()-new Date(iso).getTime())/864e5);
+      if(d<1)return "Today";if(d===1)return "Yesterday";if(d<60)return d+" days ago";
+      return Math.floor(d/30)+" months ago";
+    }
+    function fallback(){$("vidfallback").hidden=false}
+    function card(v,i){
+      var art=document.createElement("article");art.className="vid";
+      var b=document.createElement("button");b.type="button";b.className="play";b.setAttribute("aria-label","Play: "+v.title);
+      /* hqdefault has black bars baked in, which show in the taller small-card box; mqdefault is 16:9 and lighter */
+      var img=document.createElement("img");img.src="https://i.ytimg.com/vi/"+encodeURIComponent(v.id)+(i?"/mqdefault.jpg":"/hqdefault.jpg");img.alt="";img.loading="lazy";
+      var p=document.createElement("span");p.className="pbtn";
+      b.appendChild(img);b.appendChild(p);
+      b.onclick=function(){
+        var f=document.createElement("iframe");
+        f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(v.id)+"?autoplay=1&rel=0";
+        f.title=v.title;f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;
+        art.replaceChild(f,b);
+      };
+      var m=document.createElement("div");m.className="vmeta";
+      var h=document.createElement("h3");h.textContent=v.title;
+      var a=document.createElement("p");a.className="ago";a.textContent=ago(v.published);
+      m.appendChild(h);m.appendChild(a);art.appendChild(b);art.appendChild(m);
+      return art;
+    }
+    if(!window.fetch){fallback();return}
+    fetch("videos.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():[]}).then(function(list){
+      if(!Array.isArray(list)||!list.length){fallback();return}
+      var box=$("vids");
+      list.slice(0,4).forEach(function(v,i){box.appendChild(card(v,i))});
+      box.hidden=false;$("vidmore").hidden=false;
+    }).catch(fallback);
+  })();
   $("yr").textContent=new Date().getFullYear();
   load();render();
 })();

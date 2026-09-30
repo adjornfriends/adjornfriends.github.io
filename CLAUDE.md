@@ -6,6 +6,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 ## Structure
 - Everything is in `index.html`: CSS in `<style>`, JS in `<script>` at the bottom, logo and crew photo inlined as base64 data URIs.
 - Keep it a single file unless I ask otherwise. No frameworks or build step.
+- Exception: the "Latest videos" block in #watch reads `videos.json`, which `.github/workflows/videos.yml` (running `.github/scripts/videos.py`) rewrites every 3 hours from the channel's public feed, Shorts excluded. Don't edit `videos.json` by hand.
 
 ## Brand
 - Font: Outfit (Google Fonts), weights 400/500/700/800.
@@ -20,7 +21,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - `HASHTAG`: league hashtag, default #ANFgames.
 
 ## Links used on the site
-- YouTube: https://www.youtube.com/@thekingadjor
+- YouTube: https://www.youtube.com/@thekingadjor (channel ID UCCurjgjcfiRm9l0dYlC_RNw)
 - Community: https://www.playback.tv/adjtalksfootball
 - X: @adjorNfriends and @thekingadjor
 - Partner: Betano
@@ -31,7 +32,8 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - Don't invent names, emails, fixtures or stats. Ask me for real ones.
 
 ## Still to add
-Sponsor email, crew names/roles/handles, upcoming fixtures, 3–4 featured videos (YouTube embeds are fine now that it's on GitHub Pages).
+Sponsor email, crew names/roles/handles, upcoming fixtures.
 
 ## Workflow
 When a change is done: preview it, commit with a clear message, and push to main.
+A bot commits `videos.json` to main, so run `git pull --rebase` before pushing.

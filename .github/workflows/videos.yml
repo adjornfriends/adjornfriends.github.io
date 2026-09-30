@@ -1,0 +1,32 @@
+name: Update latest videos
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"  # every 3 hours
+  workflow_dispatch:         # the "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: videos
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch newest videos from the YouTube feed
+        run: python3 .github/scripts/videos.py
+
+      - name: Commit videos.json if it changed
+        run: |
+          [ -f videos.json ] || exit 0
+          git add videos.json
+          if git diff --cached --quiet; then echo "No new videos."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update latest videos"
+          git pull --rebase
+          git push
