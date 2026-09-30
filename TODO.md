@@ -1,4 +1,4 @@
-﻿ANF website: to-do list
+ANF website: to-do list
 Instructions for Claude: work through this one item at a time, starting at the top. Where an item says NEEDS FROM JOE, stop and ask me for the value. Never make up names, emails, fixtures, stats or links. After each item, preview it at phone width (360px), commit with a clear message, push to main, and tick the item off in this file.
 
 
@@ -6,8 +6,8 @@ ________________
 
 
 1. Fixes (do first)
-* Mobile layout fix. Skip this if the commit "Fix mobile layout: no sideways scroll, one-row swipe menu, bigger tap targets" is already in git log. If it isn't, ask me for the CSS.
-* Theme button on phones. It now sits at the end of the swipeable menu, where it's hidden until you swipe. Move it next to the logo on screens under 820px.
+* [x] Mobile layout fix. Skip this if the commit "Fix mobile layout: no sideways scroll, one-row swipe menu, bigger tap targets" is already in git log. If it isn't, ask me for the CSS.
+* [x] Theme button on phones. It now sits at the end of the swipeable menu, where it's hidden until you swipe. Move it next to the logo on screens under 820px.
 2. Real content (NEEDS FROM JOE)
 * Sponsor email. Set SPONSOR_EMAIL in the script block so the "Email us" button appears.
    * Email: ______________________
