@@ -6,6 +6,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 ## Structure
 - Everything is in `index.html`: CSS in `<style>`, JS in `<script>` at the bottom, logo and crew photo inlined as base64 data URIs.
 - Keep it a single file unless I ask otherwise. No frameworks or build step.
+- Favicon: the ANF mark in blue on yellow, inlined in `<head>` as an SVG data URI. `apple-touch-icon.png` (180px) is the same mark for phone home screens.
 - Exception: the "Latest videos" block in #watch reads `videos.json`, which `.github/workflows/videos.yml` (running `.github/scripts/videos.py`) rewrites every 3 hours from the channel's public feed, Shorts excluded. Don't edit `videos.json` by hand.
 
 ## Brand
