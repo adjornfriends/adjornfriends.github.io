@@ -1,7 +1,7 @@
 # ANF website — notes for Claude
 
 ## What this is
-One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian football media channel. Live on GitHub Pages at https://josephbortey2003-droid.github.io/anf-website/ — every push to main redeploys it within a couple of minutes.
+One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian football media channel. Live on GitHub Pages at https://adjornfriends.github.io/ — every push to main redeploys it within a couple of minutes.
 
 ## Structure
 - Everything is in `index.html`: CSS in `<style>`, JS in `<script>` at the bottom, logo and crew photo inlined as base64 data URIs.
