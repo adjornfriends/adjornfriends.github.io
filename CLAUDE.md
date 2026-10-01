@@ -28,7 +28,7 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - YouTube: https://www.youtube.com/@thekingadjor (channel ID UCCurjgjcfiRm9l0dYlC_RNw)
 - Community: https://www.playback.tv/adjtalksfootball
 - X: @adjorNfriends and @thekingadjor
-- Partner: Betano
+- Partner: Jerzarie Clothing, https://www.jerzarie.com
 
 ## Gotchas
 - `.la` / `.lb` are the light/dark logo classes. Don't reuse those class names for anything else (the league table once used `lb` and got hidden).

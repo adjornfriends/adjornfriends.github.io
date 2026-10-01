@@ -28,8 +28,8 @@ Instructions for Claude: work through this one item at a time, starting at the t
   - Fixtures: ______________________
 - [ ] **Audience numbers for sponsors.** Add 3–4 headline stats to the sponsor section (for example subscribers, typical live viewers, best watch-along views). Use current figures only.
   - Figures + date they were taken: ______________________
-- [ ] **Betano partner.** Show the partner properly: logo if Betano's brand rules allow it, a link if they provided one, and an "18+ | Gamble responsibly" line next to it (standard for betting sponsors; check the partnership agreement for required wording).
-  - Logo file / link / required wording: ______________________
+- [ ] **Partner logo.** The partner is now Jerzarie Clothing (replaced Betano), shown in "Join the squad" as a name linking to https://www.jerzarie.com. Still to do: show their logo if they supply one and their brand rules allow it.
+  - Logo file: ______________________
 
 ## 3. Sharing and discoverability
 
