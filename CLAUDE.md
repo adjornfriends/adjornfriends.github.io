@@ -12,8 +12,10 @@ One-page site for Adjor & Friends (ANF) / Adjor Talks Football, a Ghanaian footb
 - Font: Outfit (Google Fonts), weights 400/500/700/800.
 - Light theme: yellow background #FFF417, blue ink #002AFF, card #FFFBB5.
 - Dark theme swaps them: blue background #002AFF, yellow ink #FFF417, card #0020CC.
+- White theme (opt-in only, added at the crew's request): white background #FFFFFF, blue ink #002AFF, yellow #FFF417 cards and secondary buttons, blue boxes with white text. Uses `pattern-white.svg`.
 - Bold, uppercase hero headings, thick 3px borders, rounded cards.
-- Colours are CSS variables on :root; dark mode is set in three places (prefers-color-scheme, and data-theme="dark"/"light" from the Theme button). Keep all three in sync.
+- Colours are CSS variables on :root; dark mode is set in two places (prefers-color-scheme when no theme is chosen, and data-theme="dark"). Keep them in sync.
+- The Theme button cycles Yellow (data-theme="light") → Blue ("dark") → White ("white"), shows the current one in its label, and remembers the choice. First-time visitors get yellow, or blue if their phone is in dark mode; white is never a default. Check every change in all three themes.
 
 ## Settings (top of the <script> block)
 - `SPONSOR_EMAIL`: adjorandfriends@gmail.com. Empty means the "Email us" button stays hidden.
