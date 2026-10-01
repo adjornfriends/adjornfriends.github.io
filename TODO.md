@@ -33,7 +33,7 @@ Instructions for Claude: work through this one item at a time, starting at the t
 
 ## 3. Sharing and discoverability
 
-- [ ] **Link previews.** Add Open Graph and Twitter card meta tags (title, description, a 1200×630 share image in ANF yellow/blue) so links posted on WhatsApp and X show a proper preview card.
+- [x] **Link previews.** Add Open Graph and Twitter card meta tags (title, description, a 1200×630 share image in ANF yellow/blue) so links posted on WhatsApp and X show a proper preview card.
 - [x] **Favicon.** Add a browser-tab icon based on the ANF logo.
 - [ ] **Visitor analytics.** Add a free, lightweight, cookie-free counter (e.g. GoatCounter or Cloudflare Web Analytics) so we know how many people visit.
   - Which one / account: ______________________
