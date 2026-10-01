@@ -28,8 +28,7 @@ Instructions for Claude: work through this one item at a time, starting at the t
   - Fixtures: ______________________
 - [ ] **Audience numbers for sponsors.** Add 3–4 headline stats to the sponsor section (for example subscribers, typical live viewers, best watch-along views). Use current figures only.
   - Figures + date they were taken: ______________________
-- [ ] **Partner logo.** The partner is now Jerzarie Clothing (replaced Betano), shown in "Join the squad" as a name linking to https://www.jerzarie.com. Still to do: show their logo if they supply one and their brand rules allow it.
-  - Logo file: ______________________
+- [x] **Partner logo.** The partner is Jerzarie Clothing (replaced Betano), shown in "Join the squad" as a pill with their round badge and name, linking to https://www.jerzarie.com. The badge was taken from their website header; swap it if they send an official file.
 
 ## 3. Sharing and discoverability
 
