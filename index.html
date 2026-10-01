@@ -34,10 +34,12 @@
   :root:not([data-theme]){--bg:#002AFF;--ink:#FFF417;--muted:#F2E82A;--card:#0020CC}
   :root:not([data-theme]) .la{display:none}
   :root:not([data-theme]) .lb{display:block}
+  :root:not([data-theme]) a.chip img{box-shadow:0 0 0 2px var(--ink)}
 }
 :root[data-theme="dark"]{--bg:#002AFF;--ink:#FFF417;--muted:#F2E82A;--card:#0020CC}
 :root[data-theme="dark"] .la{display:none}
 :root[data-theme="dark"] .lb{display:block}
+:root[data-theme="dark"] a.chip img{box-shadow:0 0 0 2px var(--ink)}
 /* white theme: white page, yellow boxes, blue boxes with white text */
 :root[data-theme="white"]{--bg:#FFFFFF;--ink:#002AFF;--muted:#0020C4;--card:#FFF417}
 :root[data-theme="white"] .btns .btn:not(.fill),:root[data-theme="white"] .chip,:root[data-theme="white"] .crew figcaption{background:#FFF417}
